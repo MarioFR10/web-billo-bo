@@ -11,19 +11,22 @@ export function Header({ title, className }: Props) {
     <div
       className={tailwind(
         "flex flex-row",
-        "z-30 shadow-md",
-        // "w-full h-20 sticky",
-        // "justify-between items-center",
-        "bg-white",
+        "justify-between items-center shadow-md",
+        "px-8 py-5",
+        "h-20 z-40",
         className
       )}
     >
-      <Typography
-        variant={TypographyVariant.HEADER}
-        className={tailwind("truncate flex-1")}
-      >
+      <Typography variant={TypographyVariant.HEADER} className={tailwind("")}>
         {title}
       </Typography>
+
+      {/* TODO: this has to be a clickable object */}
+      <div className="hidden md:block">
+        <div className="h-10 w-10 rounded-full flex items-center justify-center text-bold text-primary bg-zinc-300">
+          <span className="font-semibold text-xl">AS</span>
+        </div>
+      </div>
     </div>
   );
 }

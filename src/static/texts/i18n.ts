@@ -32,5 +32,8 @@ export const TEXT = {
         },
       },
     },
+    CLIENT: {
+      TITLE: "Inicio"
+    }
   },
 };
