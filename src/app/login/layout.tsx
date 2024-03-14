@@ -17,7 +17,7 @@ export default function LoginLayout({
           "bg-white"
         )}
       >
-        <div className={tailwind("flex", "rounded-md", "bg-billo-gray")}>
+        <div className={tailwind("flex", "rounded-lg", "bg-billo-gray")}>
           <div className="my-auto mx-7">
             <Image priority src={loginImg} alt="Login" />
           </div>

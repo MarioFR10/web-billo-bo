@@ -1,28 +1,51 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, RefObject } from "react";
 import { tailwind } from "@/utils/tailwind/tailwind-utils";
+import { FormikProps, FormikValues } from "formik";
 
-type Props = {
-  value: string | number;
-  onChange: (value: string | number) => void;
+type TextFieldProps = {
+  isRequired?: boolean;
+  isDisabled?: boolean;
+  formikProps?: FormikProps<FormikValues>;
+  value?: any;
+  onBlur?: (event?: any) => void;
+  onChange?: (event?: any) => void;
+  onFocus?: (event?: any) => void;
   className?: string;
 };
 
-export function InputAtom({ value, onChange, className }: Props) {
-  function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
-    onChange(e.target.value);
-  }
+type IntrinsicTextFieldProps = TextFieldProps & JSX.IntrinsicElements["input"];
 
-  // bg-transparent1
-  // focus:outline-none1
-  // const borderClass = "ring-red-950";
+type Props = IntrinsicTextFieldProps & {
+  ref?: RefObject<any>;
+  inputForwardedRef?: RefObject<any>;
+};
+
+export function InputAtom({
+  isRequired,
+  isDisabled,
+  name,
+  value,
+  formikProps,
+  onChange,
+  onBlur,
+  className,
+}: Props) {
+  const handleBlur = onBlur || formikProps?.handleBlur;
+  const handleChange = onChange || formikProps?.handleChange;
+
+  // TODO: fix this styles
   const commonInputClass =
     "border-2 text-sm md:text-base rounded-lg p-4 bg-white";
 
   return (
     <input
+      required={isRequired}
+      disabled={isDisabled}
+      name={name}
       value={value}
-      onChange={handleInputChange}
-      className={tailwind(commonInputClass, className)}
+      onBlur={handleBlur}
+      onChange={handleChange}
+      className={tailwind("w-full", commonInputClass, className)}
     />
   );
 }

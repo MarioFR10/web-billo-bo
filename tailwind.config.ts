@@ -24,6 +24,12 @@ const config: Config = {
           blush: "#B7C5EB",
           disabled: "#B3D1FF",
         },
+        alert: {
+          DEFAULT: '#CC1400',
+          light: '#FFE8E6',
+          dark: '#800D00',
+          disabled: '#FFD1CC',
+        },
         billo: {
           blue: "#1780D7",
           gray: "#FAFBFC",

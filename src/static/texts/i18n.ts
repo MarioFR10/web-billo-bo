@@ -1,4 +1,15 @@
 export const TEXT = {
+  GENERAL: {
+    FORM: {
+      ERRORS: {
+        REQUIRED: "Completá este campo para poder continuar.",
+        FORMAT: {
+          EMAIL:
+            "El correo electrónico que ingresaste tiene un formato inválido.",
+        },
+      },
+    },
+  },
   CONTAINERS: {
     LOGIN: {
       FORM: {
