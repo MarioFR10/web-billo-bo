@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useCallback } from "react";
 import { tailwind } from "@/utils/tailwind/tailwind-utils";
 
 export enum ButtonVariant {
@@ -31,7 +31,16 @@ type ButtonProps = {
 };
 type Props = ButtonProps & JSX.IntrinsicElements["button"];
 
-export function Button({ variant, children }: Props) {
+export function Button({ variant, onClick, children }: Props) {
   const variantClassName = variantClassNames[variant];
-  return <button className={tailwind(variantClassName)}>{children}</button>;
+
+  const handleOnClick = useCallback(() => {
+    onClick?.();
+  }, [onClick]);
+
+  return (
+    <button onClick={handleOnClick} className={tailwind(variantClassName)}>
+      {children}
+    </button>
+  );
 }

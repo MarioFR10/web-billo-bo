@@ -1,4 +1,5 @@
 import * as yup from "yup";
+import { useRouter } from "next/navigation";
 import { TEXT } from "@/static/texts/i18n";
 import { FormConfig, FormHelpers, FormNames, FormSchema } from "@/components";
 
@@ -17,13 +18,15 @@ type UseLoginFormHook = {
 };
 
 export function useLoginForm(): UseLoginFormHook {
+  // external hooks
+  const router = useRouter();
+
   async function handleOnSubmit(
     values: LoginFormValues,
     helpers: FormHelpers<LoginFormValues>
   ): Promise<void> {
     try {
-      console.log(values);
-      // await router.push(routesPrivate.home);
+      router.push('/client')
     } catch (_error) {
     } finally {
       helpers.setSubmitting(false);

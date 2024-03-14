@@ -50,7 +50,9 @@ export function LoginForm() {
             </FormViewSection>
 
             <div className="flex justify-end mt-12">
-              <Button variant={ButtonVariant.PRIMARY}>
+              <Button
+                variant={ButtonVariant.PRIMARY}
+              >
                 <Typography variant={TypographyVariant.BODY}>
                   {TEXT.CONTAINERS.LOGIN.FORM.BUTTONS.LABELS.SUBMIT}
                 </Typography>
@@ -63,8 +65,3 @@ export function LoginForm() {
   );
 }
 
-{
-  /* submit */
-}
-
-// */}
