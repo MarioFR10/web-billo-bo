@@ -27,5 +27,9 @@
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
     "yup": "0.32.11"
+  },
+  "engines": {
+    "npm": ">=9.8.1",
+    "node": "18.18.2"
   }
 }
